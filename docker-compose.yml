@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: henoc2004
+      POSTGRES_DB: my_shap
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: "postgresql://postgres:henoc2004@db:5432/my_shap"
+    depends_on:
+      - db
+volumes:
+  db-data:
