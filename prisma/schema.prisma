@@ -27,7 +27,7 @@ model User {
   transactions      Transaction[] // Transactions related to the user
   agent             Agent?     // One-to-one relationship if the user is an agent
   admin             Admin?     // One-to-one relationship if the user is an admin
-  auditLogs          AuditLog[]   // Audit log for the user
+  auditLogs         AuditLog[]   // Audit log for the user
   notifications     Notification[] // Notifications for the user
   createdAt         DateTime   @default(now()) // When the user account was created
   updatedAt         DateTime   @updatedAt // Automatically updated when the user record is modified
